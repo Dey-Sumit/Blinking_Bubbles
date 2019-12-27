@@ -28,11 +28,16 @@ let bubbles = [];
 
 function setup() {
   cnv = createCanvas(windowWidth, windowHeight);
+  cnv.style('display', 'block');
   //cnv.mousePressed(draw);
 
   background(0);
   bubbles[0] = new Bubble();
 
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
 
 
