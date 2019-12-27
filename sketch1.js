@@ -40,14 +40,35 @@ function setup() {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
+let rb = 61,
+  gb = 61,
+  bb = 61; //random background
 
-
-//function createBubble() {
-//  bubbles[0] = new Bubble();
-//}
+function keyPressed() {
+  //backaspace for undo
+  if (keyCode === BACKSPACE) {
+    bubbles.pop();
+    bubbles.pop();
+    console.log("backspace-undo");
+  }
+  //c for clear
+  if (key === 'c' | key === 'C') {
+    bubbles = [];
+    console.log("c/C-clear");
+  }
+  //c for clear
+  if (key === 'b' | key === 'B') {
+    rb = random(0, 255);
+    gb = random(0, 255);
+    bb = random(0, 255);
+  }
+  if (key === 'b' && key === 'f') {
+    console.log("b and f");
+  }
+}
 
 function draw() {
-  background(61, 61, 61);
+  background(rb, gb, bb);
   for (var i = 0; i < bubbles.length; i++) {
     //bubbles[i].fall();
     bubbles[i].show();
@@ -57,6 +78,6 @@ function draw() {
     // line(mouseX, mouseY, pmouseX, pmouseY);
     b = new Bubble(mouseX, mouseY);
     bubbles.push(b);
-
   }
+
 }
