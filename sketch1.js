@@ -27,8 +27,9 @@ class Bubble {
 let bubbles = [];
 
 function setup() {
-  cnv = createCanvas(windowWidth, windowHeight);
+  cnv = createCanvas(windowWidth, windowHeight).parent('sketch-holder');
   cnv.style('display', 'block');
+
   //cnv.mousePressed(draw);
 
   background(0);
@@ -52,7 +53,7 @@ function draw() {
     bubbles[i].show();
   }
   //stroke(255);
-  if (mouseIsPressed === true) {
+  if (mouseIsPressed) {
     // line(mouseX, mouseY, pmouseX, pmouseY);
     b = new Bubble(mouseX, mouseY);
     bubbles.push(b);
